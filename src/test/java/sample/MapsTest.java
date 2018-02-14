@@ -4,7 +4,7 @@ import org.junit.Test;
 
 import java.util.*;
 
-public class Maps {
+public class MapsTest {
 
     private DbQuery toTest = new DbEngineImpl();
 
@@ -78,14 +78,14 @@ public class Maps {
     @Test
     public void testMinByKey() {
         List<Map<String, Integer>> example1 = Arrays.asList(
-                Maps.of("a", 1, "b", 2),
-                Maps.of("a", 2)
+                MapsTest.of("a", 1, "b", 2),
+                MapsTest.of("a", 2)
         );
         List<Map<String, Integer>> example2 = Arrays.asList(example1.get(1), example1.get(0));
-        List<Map<String, Integer>> example3 = Arrays.asList(Maps.of());
+        List<Map<String, Integer>> example3 = Arrays.asList(MapsTest.of());
         List<Map<String, Integer>> example4 = Arrays.asList(
-                Maps.of("a", -1),
-                Maps.of("b", -1)
+                MapsTest.of("a", -1),
+                MapsTest.of("b", -1)
         );
 
         System.out.println("minByKey");
@@ -98,17 +98,17 @@ public class Maps {
 
     @Test
     public void testFirstByKey() {
-        List<Map<String, Integer>> example1 = Arrays.asList(Maps.of("a", 1));
+        List<Map<String, Integer>> example1 = Arrays.asList(MapsTest.of("a", 1));
         List<Map<String, Integer>> example2 = Arrays.asList(
-                Maps.of("b", 1),
-                Maps.of("b", -2),
-                Maps.of("a", 10)
+                MapsTest.of("b", 1),
+                MapsTest.of("b", -2),
+                MapsTest.of("a", 10)
         );
         List<Map<String, Integer>> example3 = Arrays.asList(
-                Maps.of(),
-                Maps.of("a", 10, "b", -10),
-                Maps.of(),
-                Maps.of("a", 3, "c", 3)
+                MapsTest.of(),
+                MapsTest.of("a", 10, "b", -10),
+                MapsTest.of(),
+                MapsTest.of("a", 3, "c", 3)
         );
 
         System.out.println("firstByKey");
