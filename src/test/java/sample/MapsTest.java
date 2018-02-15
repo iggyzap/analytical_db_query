@@ -4,6 +4,8 @@ import org.junit.Test;
 
 import java.util.*;
 
+import static org.junit.Assert.assertEquals;
+
 public class MapsTest {
 
     private DbQuery toTest = new DbEngineImpl();
@@ -89,11 +91,11 @@ public class MapsTest {
         );
 
         System.out.println("minByKey");
-        assertEqual(example1.get(0), toTest.minByKey("a", example1));
-        assertEqual(example2.get(1), toTest.minByKey("a", example2));
-        assertEqual(example1.get(1), toTest.minByKey("b", example1));
-        assertEqual(example3.get(0), toTest.minByKey("a", example3));
-        assertEqual(example4.get(1), toTest.minByKey("b", example4));
+        assertEquals(example1.get(0), toTest.minByKey("a", example1));
+        assertEquals(example2.get(1), toTest.minByKey("a", example2));
+        assertEquals(example1.get(1), toTest.minByKey("b", example1));
+        assertEquals(example3.get(0), toTest.minByKey("a", example3));
+        assertEquals(example4.get(1), toTest.minByKey("b", example4));
     }
 
     @Test
@@ -112,23 +114,12 @@ public class MapsTest {
         );
 
         System.out.println("firstByKey");
-        assertEqual(example1.get(0), toTest.firstByKey("a", "asc", example1));
-        assertEqual(example2.get(0), toTest.firstByKey("a", "asc", example2));  // example2.get(1) ok too
-        assertEqual(example2.get(2), toTest.firstByKey("a", "desc", example2));
-        assertEqual(example2.get(1), toTest.firstByKey("b", "asc", example2));
-        assertEqual(example2.get(0), toTest.firstByKey("b", "desc", example2));
-        assertEqual(example3.get(1), toTest.firstByKey("a", "desc", example3));
+        assertEquals(example1.get(0), toTest.firstByKey("a", "asc", example1));
+        assertEquals(example2.get(0), toTest.firstByKey("a", "asc", example2));  // example2.get(1) ok too
+        assertEquals(example2.get(2), toTest.firstByKey("a", "desc", example2));
+        assertEquals(example2.get(1), toTest.firstByKey("b", "asc", example2));
+        assertEquals(example2.get(0), toTest.firstByKey("b", "desc", example2));
+        assertEquals(example3.get(1), toTest.firstByKey("a", "desc", example3));
     }
-
-
-
-    public static <T> void assertEqual(T expected, T actual) {
-        if (expected == null && actual == null || actual != null && actual.equals(expected)) {
-            System.out.println("PASSED");
-        } else {
-            throw new AssertionError("Expected:\n  " + expected + "\nActual:\n  " + actual + "\n");
-        }
-    }
-
 
 }
